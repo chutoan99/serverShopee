@@ -4,9 +4,10 @@ const categoryRouter = require("./categories");
 const shopRouter = require("./shop");
 const searchRouter = require("./search");
 const insertRouter = require("./insert");
-
+const sendEmailRouter = require("./sendEmail");
 const initRoutes = (app) => {
   app.use("/auth", authRouter);
+  app.use("/email", sendEmailRouter);
   app.use("/data", insertRouter);
   app.use("/api", dataRouter);
   app.use("/category", categoryRouter);

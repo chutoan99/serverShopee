@@ -3,10 +3,23 @@ const Schema = mongoose.Schema;
 
 const postSchema = new Schema(
   {
-    descriptionId: {
+    description: {
+      type: String,
+      ref: "description",
+    },
+    shopId: {
+      type: String,
+    },
+    commentId: {
+      type: String,
+    },
+    tierVariationId: {
       type: String,
     },
     overviewId: {
+      type: String,
+    },
+    attributeId: {
       type: String,
     },
     categoryId: {

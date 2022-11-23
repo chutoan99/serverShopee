@@ -1,79 +1,40 @@
 const datas = require("../../data/data");
 const comments = require("../../data/comment");
-const descriptionModel = require("../models/description");
-const postModel = require("../models/post");
-const userModel = require("../models/user");
-const overviewModel = require("../models/overview");
 const { v4 } = require("uuid");
 const bcrypt = require("bcrypt");
-
+const overviewModel = require("../models/overview");
 const hashPassWord = (password) =>
   bcrypt.hashSync(password, bcrypt.genSaltSync(12)); // HASH PASSWORD
 
 const dataController = {
-  // insert data
-
-  insertData: async (req, res) => {
-    try {
-      datas.items.map(async (item) => {
-        await descriptionModel.create({
-          descriptionId: item?.itemid,
-          description: item?.description,
-        });
-        await postModel.create({
-          overviewId: item?.itemid,
-          descriptionId: item?.itemid,
-          userId: item?.shopid,
-          itemid: item?.itemid,
-          shopid: item?.shopid,
-          currency: item?.currency,
-          status: item?.status,
-          stock: item?.stock,
-          images: JSON.stringify(item?.images),
-          sold: item?.sold,
-          liked_count: item?.liked_count,
-          catid: item?.catid,
-          cmt_count: item?.cmt_count,
-          raw_discount: item?.raw_discount,
-          size_chart: item?.size_chart || null,
-          shop_name: item?.shop_name,
-          transparent_background_image: item?.transparent_background_image,
-        });
-        await userModel.create({
-          userId: item?.shopid,
-          name: "",
-          email: "",
-          gender: "",
-          address: "",
-          phone: "",
-          birthday: "",
-          password: hashPassWord("12345"),
-        });
-        await overviewModel.create({
-          overviewId: item?.itemid,
-          itemid: item?.itemid,
-          shopid: item?.shopid,
-          name: item?.name,
-          image: item?.image,
-          historical_sold: item?.historical_sold,
-          price: item?.price,
-          price_min: item?.price_min,
-          price_max: item?.price_max,
-          price_min_before_discount: item?.price_min_before_discount,
-          price_max_before_discount: item?.price_max_before_discount,
-          discount: item?.discount,
-          shop_rating: item?.shop_rating,
-        });
-      });
-    } catch (err) {
-      res.json("lỗi server");
-    }
-  },
-
   // Get AlL Data
   getAllData: async (req, res) => {
+    var page = req.query.page;
     try {
-      res.json(datas);
+      if (page) {
+        if (page < 1) {
+          page = 1;
+        }
+        page = parseInt(page);
+        var skip = (page - 1) * process.env.POST_LIMIT;
+        overviewModel
+          .find({})
+          .limit(process.env.POST_LIMIT)
+          .skip(skip)
+          .then((data) =>
+            res.json({
+              limit: process.env.POST_LIMIT,
+              page: page,
+              res: data,
+            })
+          )
+          .catch((err) => res.jon(err));
+      } else {
+        overviewModel
+          .find({})
+          .then((data) => res.json(data))
+          .catch((err) => res.jon(err));
+      }
     } catch (err) {
       res.json("lỗi server");
     }
