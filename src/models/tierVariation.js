@@ -1,23 +1,32 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+"use strict";
+const { Model } = require("sequelize");
+module.exports = (sequelize, DataTypes) => {
+  class TierVariation extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
 
-const tierVariationSchema = new Schema(
-  {
-    tierVariationId: {
-      type: String,
+      TierVariation.hasOne(models.Post, {
+        foreignKey: "itemid",
+        as: "TierVariations",
+      });
+    }
+  }
+  TierVariation.init(
+    {
+      itemid: DataTypes.STRING,
+      name: DataTypes.TEXT,
+      option: DataTypes.TEXT,
+      img: DataTypes.TEXT,
     },
-    name: {
-      type: Array,
-    },
-    option: {
-      type: Array,
-    },
-    img: {
-      type: Array,
-    },
-  },
-  { timestamps: true }
-);
-
-const tierVariationModel = mongoose.model("tierVariation", tierVariationSchema);
-module.exports = tierVariationModel;
+    {
+      sequelize,
+      modelName: "TierVariation",
+    }
+  );
+  return TierVariation;
+};

@@ -1,29 +1,44 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
-
-const shopSchema = new Schema(
-  {
-    shopId: {
-      type: String,
+"use strict";
+const { Model } = require("sequelize");
+module.exports = (sequelize, DataTypes) => {
+  class Shop extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
+      Shop.hasOne(models.Shop, {
+        foreignKey: "shopid",
+        as: "Shops",
+      });
+    }
+  }
+  Shop.init(
+    {
+      shopid: DataTypes.STRING,
+      userid: DataTypes.STRING,
+      is_official_shop: DataTypes.BOOLEAN,
+      item_count: DataTypes.INTEGER,
+      rating_star: DataTypes.INTEGER,
+      name: DataTypes.STRING,
+      follower_count: DataTypes.INTEGER,
+      rating_bad: DataTypes.INTEGER,
+      rating_good: DataTypes.INTEGER,
+      rating_normal: DataTypes.INTEGER,
+      status: DataTypes.INTEGER,
+      shop_location: DataTypes.STRING,
+      username: DataTypes.STRING,
+      portrait: DataTypes.STRING,
+      place: DataTypes.STRING,
+      response_time: DataTypes.INTEGER,
+      follower_count: DataTypes.INTEGER,
     },
-    shopid: { type: Number },
-    userid: { type: Number },
-    place: { type: String },
-    portrait: { type: String },
-    username: { type: String },
-    is_official_shop: { type: Boolean },
-    shop_location: { type: String },
-    item_count: { type: Number },
-    rating_star: { type: Number },
-    name: { type: String },
-    follower_count: { type: Number },
-    rating_bad: { type: Number },
-    rating_good: { type: Number },
-    rating_normal: { type: Number },
-    status: { type: Number },
-  },
-  { timestamps: true }
-);
-
-const shopModel = mongoose.model("shop", shopSchema);
-module.exports = shopModel;
+    {
+      sequelize,
+      modelName: "Shop",
+    }
+  );
+  return Shop;
+};

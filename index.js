@@ -1,27 +1,28 @@
+const connectDb = require("./src/config/connectDb");
+const configSocket = require("./src/config/socketio");
+const initRoutes = require("./src/routes/index");
+const connectMongodb = require("./src/config/connectMongo");
 const express = require("express");
 const cors = require("cors");
-const connectDb = require("./src/models/connectDb");
-const initRoutes = require("./src/routes/index");
-// const datas = require("./data/data");
-// datas.items.map((item) => {
-//   item?.categories?.map((item, index) =>
-//     console.log("vòng:", index,item?.display_name)
-//   );
-// }),
-require("dotenv").config();
-
 const app = express();
+
+const server = require("http").createServer(app);
+
+configSocket(server);
 app.use(express());
 app.use(cors());
 app.use(express.json());
 connectDb();
+connectMongodb();
+// routes
 initRoutes(app);
 // trang home
 app.get("/", (req, res) => {
   res.send("hello");
 });
+
 // trang home
+require("dotenv").config();
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log("http://localhost:" + PORT);
-});
+
+server.listen(PORT, () => console.log(`Server running on port ${PORT}`));

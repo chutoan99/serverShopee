@@ -1,22 +1,35 @@
-const authRouter = require("./auth");
-const dataRouter = require("./data");
-const categoryRouter = require("./categories");
-const shopRouter = require("./shop");
-const searchRouter = require("./search");
-const insertRouter = require("./insert");
-const sendEmailRouter = require("./sendEmail");
+const insertRoute = require("./insert.route");
+const overviewRoute = require("./overview.route");
+const postRoute = require("./post.route");
+const commentRoute = require("./comment.route");
+const shopRoute = require("./shop.route");
+const cartRoute = require("./cart.route");
+const orderRoute = require("./order.route");
+const authRoute = require("./auth.route");
+const userRoute = require("./user.route");
+const { notFound } = require("../middleWares/handle_errors");
+
 const initRoutes = (app) => {
-  app.use("/auth", authRouter);
-  app.use("/email", sendEmailRouter);
-  app.use("/data", insertRouter);
-  app.use("/api", dataRouter);
-  app.use("/category", categoryRouter);
-  app.use("/shop", shopRouter);
-  app.use("/search", searchRouter);
+  app.use("/auth", authRoute);
+
+  app.use("/insert", insertRoute);
+
+  app.use("/overview", overviewRoute);
+
+  app.use("/post", postRoute);
+
+  app.use("/comment", commentRoute);
+
+  app.use("/shop", shopRoute);
+
+  app.use("/cart", cartRoute);
+
+  app.use("/order", orderRoute);
+
+  app.use("/user", userRoute);
+
   // nếu không lọt vào các routes trên thì sẽ lọt vào routes này
-  return app.use("/", (req, res) => {
-    res.send("server on...");
-  });
+  app.use(notFound);
 };
 
 module.exports = initRoutes;
