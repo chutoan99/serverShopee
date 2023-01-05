@@ -1,5 +1,7 @@
 const configSocket = (server) => {
-  const io = require("socket.io")(server);
+  const io = require("socket.io")(server, {
+    cors: { origin: ["http://localhost:4200"] },
+  });
   io.on("connection", (socket) => {
     console.log("Có người kết nối: " + socket.id);
     // lắng nghe sự kiện data client truyền lên server
@@ -12,7 +14,8 @@ const configSocket = (server) => {
     });
     socket.on("join", (data) => {
       socket.join(data.room);
-      socket.broadcast.to(data.room).emit("user joined");
+      socket.broadcast.to(data.room).emit("user joined"),
+        { user: data.user, message: "has joined this room" };
     });
 
     socket.on("chat", (data) => {

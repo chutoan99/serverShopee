@@ -81,6 +81,13 @@ const DeleteOverviewController = async (req, res) => {
 const GetAllController = async (req, res) => {
   try {
     const response = await GetAllid();
+
+    // let newArr = [];
+    // for (let i of response) {
+    //   if (!newArr.includes(i)) {
+    //     newArr.push(i);
+    //   }
+    // }
     return res.status(200).json(response);
   } catch (error) {
     internalServerError(res);

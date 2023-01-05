@@ -5,6 +5,7 @@ const sequelize = new Sequelize("shopee", "root", null, {
   host: "localhost",
   dialect: "mysql",
   logging: false,
+  port: "3305",
 });
 
 const connectDb = async () => {

@@ -10,9 +10,13 @@ const {
 const router = express.Router();
 
 router.get("/", GetAllCartController);
+
 router.post("/", AddCartController);
+
 router.put("/:cartid", UpdateCartController);
+
 router.delete("/:cartid", DeleteCartController);
+
 router.get("/:cartid", GetCartIdController);
 
 module.exports = router;

@@ -9,16 +9,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-
-      TierVariation.hasOne(models.Post, {
-        foreignKey: "itemid",
-        as: "TierVariations",
-      });
     }
   }
   TierVariation.init(
     {
-      itemid: DataTypes.STRING,
+      itemid: DataTypes.BIGINT,
       name: DataTypes.TEXT,
       option: DataTypes.TEXT,
       img: DataTypes.TEXT,

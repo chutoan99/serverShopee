@@ -2,25 +2,10 @@ const { internalServerError } = require("../middleWares/handle_errors");
 const {
   GetAllPostService,
   GetPostIdService,
-  InsertPostService,
   UpdatePostService,
   DeletePostService,
   AddPostService,
 } = require("../services/post.service");
-
-const InsertPostController = async (req, res) => {
-  try {
-    for (let index = 0; index < 200; index++) {
-      const hotItems = require(`../../data/hotitems10/hot_items_${index}.json`)
-        .data.items;
-      await hotItems.forEach(async (item, i) => {
-        await InsertPostService(item);
-      });
-    }
-  } catch (error) {
-    internalServerError(res);
-  }
-};
 
 // GET ALL Post
 const GetAllPostController = async (req, res) => {
@@ -79,7 +64,6 @@ const DeletePostController = async (req, res) => {
 
 module.exports = {
   AddPostController,
-  InsertPostController,
   GetAllPostController,
   GetPostIdController,
   UpdatePostController,

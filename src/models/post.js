@@ -17,38 +17,42 @@ module.exports = (sequelize, DataTypes) => {
       Post.belongsTo(models.Category, {
         foreignKey: "itemid",
         targetKey: "itemid",
-        as: "Categories",
+        as: "categories",
       });
 
       Post.belongsTo(models.Video, {
         foreignKey: "itemid",
         targetKey: "itemid",
-        as: "Videos",
-      });
-
-      Post.belongsTo(models.TierVariation, {
-        foreignKey: "itemid",
-        targetKey: "itemid",
-        as: "TierVariations",
+        as: "video",
       });
 
       Post.belongsTo(models.Attribute, {
         foreignKey: "itemid",
         targetKey: "itemid",
-        as: "Attributes",
+        as: "attributes",
       });
 
       Post.belongsTo(models.Shop, {
         foreignKey: "shopid",
         targetKey: "shopid",
-        as: "Shops",
+        as: "shop_info",
+      });
+      Post.belongsTo(models.DeepDiscountSkin, {
+        foreignKey: "itemid",
+        targetKey: "itemid",
+        as: "deep_discount_skin",
+      });
+      Post.belongsTo(models.VoucherProduct, {
+        foreignKey: "itemid",
+        targetKey: "itemid",
+        as: "voucher",
       });
     }
   }
   Post.init(
     {
-      itemid: DataTypes.STRING,
-      shopid: DataTypes.STRING,
+      itemid: DataTypes.BIGINT,
+      shopid: DataTypes.BIGINT,
       currency: DataTypes.STRING,
       stock: DataTypes.INTEGER,
       status: DataTypes.INTEGER,
@@ -62,6 +66,7 @@ module.exports = (sequelize, DataTypes) => {
       shop_name: DataTypes.STRING,
       transparent_background_image: DataTypes.STRING,
       images: DataTypes.STRING,
+      view_count: DataTypes.INTEGER,
     },
     {
       sequelize,

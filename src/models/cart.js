@@ -14,9 +14,9 @@ module.exports = (sequelize, DataTypes) => {
   Cart.init(
     {
       cartid: DataTypes.STRING,
-      userid: DataTypes.STRING,
-      itemid: DataTypes.STRING,
-      shopid: DataTypes.STRING,
+      userid: DataTypes.BIGINT,
+      itemid: DataTypes.BIGINT,
+      shopid: DataTypes.BIGINT,
       name: DataTypes.STRING,
       image: DataTypes.STRING,
       historical_sold: DataTypes.INTEGER,
@@ -28,7 +28,6 @@ module.exports = (sequelize, DataTypes) => {
       price_max_before_discount: DataTypes.INTEGER,
       discount: DataTypes.STRING,
       raw_discount: DataTypes.INTEGER,
-
       shop_rating: DataTypes.INTEGER,
       amount: DataTypes.INTEGER,
       option: DataTypes.STRING,

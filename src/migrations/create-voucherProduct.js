@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("TierVariations", {
+    await queryInterface.createTable("VoucherProducts", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -10,9 +10,9 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       itemid: { type: Sequelize.BIGINT },
-      name: { type: Sequelize.TEXT },
-      option: { type: Sequelize.TEXT },
-      img: { type: Sequelize.TEXT },
+      promotion_id: { type: Sequelize.BIGINT },
+      voucher_code: { type: Sequelize.STRING },
+      label: { type: Sequelize.STRING },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
@@ -24,6 +24,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("TierVariations");
+    await queryInterface.dropTable("VoucherProducts");
   },
 };

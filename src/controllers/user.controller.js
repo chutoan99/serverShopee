@@ -16,10 +16,9 @@ const GetAllUserController = async (req, res) => {
 };
 
 const GetUserIdController = async (req, res) => {
-  const { userId } = req.user;
-  console.log("xx", req.user);
+  const { userid } = req.user;
   try {
-    const response = await GetUserIdService(userId);
+    const response = await GetUserIdService(userid);
     return res.status(200).json(response);
   } catch (error) {
     internalServerError(res);
@@ -28,9 +27,9 @@ const GetUserIdController = async (req, res) => {
 
 const UpdateUserController = async (req, res) => {
   const payload = req.body;
-  const { userId } = req.user;
+  const { userid } = req.user;
   try {
-    const response = await UpdateUserService(userId, payload);
+    const response = await UpdateUserService(userid, payload);
     return res.status(200).json(response);
   } catch (error) {
     internalServerError(res);
@@ -38,9 +37,9 @@ const UpdateUserController = async (req, res) => {
 };
 
 const DeleteUserController = async (req, res) => {
-  const { userId } = req.user;
+  const { userid } = req.user;
   try {
-    const response = await DeleteUserService(userId);
+    const response = await DeleteUserService(userid);
     return res.status(200).json(response);
   } catch (error) {
     internalServerError(res);

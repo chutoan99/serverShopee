@@ -1,6 +1,5 @@
 const express = require("express");
 const {
-  insertCommentController,
   getAllCommentController,
   getCommentIdController,
   addCommentController,
@@ -9,8 +8,6 @@ const {
 } = require("../controllers/comment.controller");
 
 const router = express.Router();
-
-router.post("/insert", insertCommentController);
 
 router.get("/", getAllCommentController);
 

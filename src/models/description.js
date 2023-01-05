@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Description.init(
     {
-      itemid: DataTypes.STRING,
+      itemid: DataTypes.BIGINT,
       description: DataTypes.STRING,
     },
     {

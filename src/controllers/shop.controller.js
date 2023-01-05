@@ -1,5 +1,4 @@
 const {
-  insertShopService,
   getAllShopService,
   getShopIDService,
   updateShopService,
@@ -7,16 +6,6 @@ const {
   deleteShopService,
 } = require("../services/shop.service");
 const { internalServerError } = require("../middleWares/handle_errors");
-
-// INSERT ALL shop
-const insertShopController = async (req, res) => {
-  try {
-    // const response = await insertShopService();
-    // return res.status(200).json(response);
-  } catch (error) {
-    internalServerError(res);
-  }
-};
 
 // GET ALL shop
 const getAllShopController = async (req, res) => {
@@ -75,7 +64,6 @@ const deleteShopController = async (req, res) => {
 };
 
 module.exports = {
-  insertShopController,
   getAllShopController,
   getShopIdController,
   updateShopController,

@@ -40,12 +40,13 @@ const GetAllid = () =>
   //name la filter
   new Promise(async (resolve, reject) => {
     try {
+      var limit = [];
       const response = await db.Overview.findAll({
         attributes: ["itemid", "shopid"],
       });
-      resolve({
-        response,
-      });
+      // response.map((item) => limit.push(item.itemid));
+
+      resolve(response);
     } catch (error) {
       reject(error);
     }

@@ -12,13 +12,13 @@ module.exports = (sequelize, DataTypes) => {
 
       Video.hasOne(models.Video, {
         foreignKey: "itemid",
-        as: "Videos",
+        as: "video",
       });
     }
   }
   Video.init(
     {
-      itemid: DataTypes.STRING,
+      itemid: DataTypes.BIGINT,
       video_id: DataTypes.STRING,
       thumb_url: DataTypes.STRING,
       duration: DataTypes.INTEGER,

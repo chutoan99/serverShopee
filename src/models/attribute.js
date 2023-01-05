@@ -11,13 +11,13 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Attribute.hasOne(models.Post, {
         foreignKey: "itemid",
-        as: "Attributes",
+        as: "attributes",
       });
     }
   }
   Attribute.init(
     {
-      itemid: DataTypes.STRING,
+      itemid: DataTypes.BIGINT,
       name: DataTypes.TEXT,
       value: DataTypes.TEXT,
     },

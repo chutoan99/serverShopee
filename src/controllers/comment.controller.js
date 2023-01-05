@@ -1,5 +1,4 @@
 const {
-  insertCommentService,
   getCommentService,
   getCommentIdService,
   addCommentIdService,
@@ -7,21 +6,6 @@ const {
   updateCommentIdService,
 } = require("../services/comment.service");
 const { internalServerError } = require("../middleWares/handle_errors");
-
-// INSERT comment
-const insertCommentController = async (req, res) => {
-  try {
-    for (let index = 0; index < 200; index++) {
-      const ratings = require(`../../data/rating/rating_${index}.json`).data
-        .ratings;
-      await ratings.forEach(
-        async (item, i) => await insertCommentService(item, index, i)
-      );
-    }
-  } catch (error) {
-    return internalServerError(res);
-  }
-};
 
 // GET ALL Comment
 const getAllCommentController = async (req, res) => {
@@ -81,7 +65,6 @@ const updateCommentController = async (req, res) => {
 };
 
 module.exports = {
-  insertCommentController,
   getAllCommentController,
   getCommentIdController,
   addCommentController,

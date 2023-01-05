@@ -1,35 +1,6 @@
 const db = require("../models");
 require("dotenv").config();
 
-// INSERT Comment
-const insertCommentService = (item, index, i) =>
-  new Promise(async (resolve, reject) => {
-    try {
-      await console.log(item.cmtid, index, i);
-      const response = await db.Comment.create({
-        orderid: item?.orderid,
-        itemid: item?.itemid,
-        cmtid: item?.cmtid,
-        rating: item?.rating,
-        userid: item?.userid,
-        shopid: item?.shopid,
-        comment: item?.comment,
-        rating_star: item?.rating_star,
-        status: item?.status,
-        author_username: item?.author_username,
-        images: JSON.stringify(item?.images),
-        // videos: JSON.stringify(item?.videos[0]?.url),
-      });
-      resolve({
-        err: response ? 0 : 1,
-        msg: response ? "OK" : "Failed to insert Comment.",
-        response,
-      });
-    } catch (error) {
-      reject(error);
-    }
-  });
-
 // GET ALL Comment
 const getCommentService = (query) =>
   new Promise(async (resolve, reject) => {
@@ -125,7 +96,6 @@ const updateCommentIdService = (cmtid, payload) =>
   });
 
 module.exports = {
-  insertCommentService,
   getCommentService,
   getCommentIdService,
   addCommentIdService,

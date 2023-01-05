@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       // User.hasOne(models.User, {
-      //   foreignKey: "userId",
+      //   foreignKey: "userid",
       //   as: "Users",
       // });
     }
@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sex: DataTypes.STRING,
       role: DataTypes.STRING,
-      userId: DataTypes.STRING,
+      userid: DataTypes.BIGINT,
       password: DataTypes.STRING,
       email: DataTypes.STRING,
       name: DataTypes.STRING,

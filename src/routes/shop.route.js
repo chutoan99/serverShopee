@@ -1,6 +1,5 @@
 const express = require("express");
 const {
-  insertShopController,
   getAllShopController,
   getShopIdController,
   updateShopController,
@@ -11,7 +10,6 @@ const {
 const router = express.Router();
 
 // INSERT ALL shop
-// router.post("/insert", insertShopController);
 
 // GET ALL shop
 router.get("/", getAllShopController);

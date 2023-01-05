@@ -60,6 +60,8 @@ const AddOrderService = (payload) =>
         amount: payload.amount,
         option: payload.option,
         state: payload.state,
+        note: payload.note,
+        shiped: payload.shiped,
       });
       resolve({
         err: response ? 0 : 1,

@@ -2,17 +2,18 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("TierVariations", {
+    await queryInterface.createTable("Notifications", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      itemid: { type: Sequelize.BIGINT },
-      name: { type: Sequelize.TEXT },
-      option: { type: Sequelize.TEXT },
-      img: { type: Sequelize.TEXT },
+      image: { type: Sequelize.STRING },
+      title: { type: Sequelize.STRING },
+      content: { type: Sequelize.STRING },
+      userid: { type: Sequelize.BIGINT },
+      seen: { type: Sequelize.BOOLEAN },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
@@ -24,6 +25,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("TierVariations");
+    await queryInterface.dropTable("Notifications");
   },
 };

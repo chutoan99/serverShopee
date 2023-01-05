@@ -20,12 +20,12 @@ const GetAllUserService = () =>
   });
 
 // GET  User id
-const GetUserIdService = (userId) =>
+const GetUserIdService = (userid) =>
   new Promise(async (resolve, reject) => {
     try {
       const response = await db.User.findOne({
         where: {
-          userid: userId,
+          userid: userid,
         },
         attributes: {
           exclude: ["password"],
@@ -42,7 +42,7 @@ const GetUserIdService = (userId) =>
   });
 
 // Update User
-const UpdateUserService = (userId, payload) =>
+const UpdateUserService = (userid, payload) =>
   new Promise(async (resolve, reject) => {
     console.log(payload);
     try {
@@ -55,7 +55,7 @@ const UpdateUserService = (userId, payload) =>
           phone: payload?.phone,
           birthday: payload?.birthday,
         },
-        { where: { userid: userId } }
+        { where: { userid: userid } }
       );
       resolve({
         err: response ? 0 : 1,
@@ -68,10 +68,10 @@ const UpdateUserService = (userId, payload) =>
   });
 
 // DELETE User
-const DeleteUserService = (userId) =>
+const DeleteUserService = (userid) =>
   new Promise(async (resolve, reject) => {
     try {
-      const response = await db.User.destroy({ where: { userid: userId } });
+      const response = await db.User.destroy({ where: { userid: userid } });
       resolve({
         err: response ? 0 : 1,
         msg: response ? "OK" : "Failed to delete User.",

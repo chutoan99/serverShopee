@@ -1,6 +1,5 @@
 const express = require("express");
 const {
-  InsertPostController,
   GetAllPostController,
   GetPostIdController,
   UpdatePostController,
@@ -9,8 +8,6 @@ const {
 } = require("../controllers/post.controller");
 
 const router = express.Router();
-
-router.post("/insert", InsertPostController);
 
 router.get("/", GetAllPostController);
 

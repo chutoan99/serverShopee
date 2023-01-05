@@ -19,7 +19,7 @@ const RegisterServices = (payload) =>
           email: payload.email,
         },
         defaults: {
-          userId: payload.userId,
+          userid: payload.userid,
           name: payload.name,
           email: payload.email,
           sex: sex,
@@ -37,7 +37,7 @@ const RegisterServices = (payload) =>
       const token = response
         ? jwt.sign(
             {
-              userId: response.userId,
+              userid: response.userid,
               email: response.email,
               role: response.role,
             },
@@ -73,7 +73,7 @@ const LoginServices = (email, password) =>
       const token = isChecked
         ? jwt.sign(
             {
-              userId: response.userId,
+              userid: response.userId,
               email: response.email,
               role: response.role,
             },

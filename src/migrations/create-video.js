@@ -12,7 +12,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      itemid: { type: Sequelize.STRING },
+      itemid: { type: Sequelize.BIGINT },
       video_id: { type: Sequelize.STRING },
       thumb_url: { type: Sequelize.STRING },
       duration: { type: Sequelize.INTEGER },

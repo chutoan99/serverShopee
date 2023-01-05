@@ -1,3 +1,4 @@
+const { notFound } = require("../middleWares/handle_errors");
 const insertRoute = require("./insert.route");
 const overviewRoute = require("./overview.route");
 const postRoute = require("./post.route");
@@ -7,7 +8,8 @@ const cartRoute = require("./cart.route");
 const orderRoute = require("./order.route");
 const authRoute = require("./auth.route");
 const userRoute = require("./user.route");
-const { notFound } = require("../middleWares/handle_errors");
+const bannerRoute = require("./banner.route");
+const categoryTreeRoute = require("./categoryTree.route");
 
 const initRoutes = (app) => {
   app.use("/auth", authRoute);
@@ -27,6 +29,10 @@ const initRoutes = (app) => {
   app.use("/order", orderRoute);
 
   app.use("/user", userRoute);
+
+  app.use("/banner", bannerRoute);
+
+  app.use("/categoryTree", categoryTreeRoute);
 
   // nếu không lọt vào các routes trên thì sẽ lọt vào routes này
   app.use(notFound);

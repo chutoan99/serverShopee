@@ -2,17 +2,15 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("TierVariations", {
+    await queryInterface.createTable("SearchSuggestions", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      itemid: { type: Sequelize.BIGINT },
-      name: { type: Sequelize.TEXT },
-      option: { type: Sequelize.TEXT },
-      img: { type: Sequelize.TEXT },
+      text: { type: Sequelize.STRING },
+      count: { type: Sequelize.INTEGER },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
@@ -24,6 +22,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("TierVariations");
+    await queryInterface.dropTable("SearchSuggestions");
   },
 };

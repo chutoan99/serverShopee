@@ -9,7 +9,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      itemid: { type: Sequelize.STRING },
+      itemid: { type: Sequelize.BIGINT },
       name: { type: Sequelize.TEXT },
       value: { type: Sequelize.TEXT },
       createdAt: {

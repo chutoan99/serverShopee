@@ -4,7 +4,7 @@ const { RegisterServices, LoginServices } = require("../services/auth.service");
 const { internalServerError } = require("../middleWares/handle_errors");
 const { badRequest } = require("../middleWares/handle_errors");
 
-const RegisterController = async (req, res) => {
+const RegisterController = async (req, res, next) => {
   try {
     // chua cac bien can validate
     const { error } = joi.object({ email, password }).validate({
@@ -36,4 +36,26 @@ const LoginController = async (req, res) => {
     return internalServerError(res);
   }
 };
-module.exports = { RegisterController, LoginController };
+const forgotPasswordController = async (req, res) => {
+  try {
+    console.log(req.code, "passsssssssssssssssssssssss");
+    const code = req.code;
+    const { code2 } = req.body;
+    // if (!email || !password) {
+    //   return res.status(200).json({
+    //     err: 1,
+    //     mess: "missing input",
+    //   });
+    // }
+    // const response = await LoginServices(email, password);
+    // return res.status(200).json(response);
+  } catch (error) {
+    return internalServerError(res);
+  }
+};
+
+module.exports = {
+  RegisterController,
+  LoginController,
+  forgotPasswordController,
+};

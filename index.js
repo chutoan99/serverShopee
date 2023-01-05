@@ -5,8 +5,8 @@ const connectMongodb = require("./src/config/connectMongo");
 const express = require("express");
 const cors = require("cors");
 const app = express();
-
-const server = require("http").createServer(app);
+const http = require("http");
+const server = http.createServer(app);
 
 configSocket(server);
 app.use(express());
@@ -26,3 +26,8 @@ require("dotenv").config();
 const PORT = process.env.PORT || 3000;
 
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+function generateRandomNumber() {
+  return ("000000" + Math.floor(Math.random() * 1000000)).slice(-6);
+}
+
+console.log(generateRandomNumber());

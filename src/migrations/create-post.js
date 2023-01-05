@@ -9,8 +9,8 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      itemid: { type: Sequelize.STRING },
-      shopid: { type: Sequelize.STRING },
+      itemid: { type: Sequelize.BIGINT },
+      shopid: { type: Sequelize.BIGINT },
       currency: { type: Sequelize.STRING },
       stock: { type: Sequelize.INTEGER },
       status: { type: Sequelize.INTEGER },
@@ -24,6 +24,7 @@ module.exports = {
       shop_name: { type: Sequelize.STRING },
       transparent_background_image: { type: Sequelize.STRING },
       images: { type: Sequelize.STRING },
+      view_count: { type: Sequelize.INTEGER },
       createdAt: { allowNull: false, type: Sequelize.DATE },
       updatedAt: {
         allowNull: false,

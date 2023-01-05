@@ -2,17 +2,21 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("TierVariations", {
+    await queryInterface.createTable("CommentReplies", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
+      orderid: { type: Sequelize.BIGINT },
       itemid: { type: Sequelize.BIGINT },
-      name: { type: Sequelize.TEXT },
-      option: { type: Sequelize.TEXT },
-      img: { type: Sequelize.TEXT },
+      cmtid: { type: Sequelize.BIGINT },
+      userid: { type: Sequelize.BIGINT },
+      shopid: { type: Sequelize.BIGINT },
+      comment: { type: Sequelize.STRING },
+      ctime: { type: Sequelize.DATE },
+      mtime: { type: Sequelize.DATE },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
@@ -24,6 +28,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("TierVariations");
+    await queryInterface.dropTable("CommentReplies");
   },
 };
