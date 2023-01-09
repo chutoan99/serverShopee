@@ -10,6 +10,7 @@ const authRoute = require("./auth.route");
 const userRoute = require("./user.route");
 const bannerRoute = require("./banner.route");
 const categoryTreeRoute = require("./categoryTree.route");
+const industryRoute = require("./industry.route");
 
 const initRoutes = (app) => {
   app.use("/auth", authRoute);
@@ -33,6 +34,8 @@ const initRoutes = (app) => {
   app.use("/banner", bannerRoute);
 
   app.use("/categoryTree", categoryTreeRoute);
+
+  app.use("/industry", industryRoute);
 
   // nếu không lọt vào các routes trên thì sẽ lọt vào routes này
   app.use(notFound);

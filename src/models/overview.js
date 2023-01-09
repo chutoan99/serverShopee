@@ -15,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       itemid: DataTypes.BIGINT,
       shopid: DataTypes.BIGINT,
+      catid: DataTypes.BIGINT,
       name: DataTypes.STRING,
       image: DataTypes.STRING,
       historical_sold: DataTypes.INTEGER,
@@ -29,6 +30,10 @@ module.exports = (sequelize, DataTypes) => {
       filename: DataTypes.STRING,
       liked: DataTypes.BOOLEAN,
       ctime: DataTypes.DATE,
+      show_free_shipping: DataTypes.BOOLEAN,
+      is_official_shop: DataTypes.BOOLEAN,
+      is_service_by_shopee: DataTypes.BOOLEAN,
+      show_free_shipping: DataTypes.BOOLEAN,
     },
     {
       sequelize,

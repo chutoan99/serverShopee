@@ -39,6 +39,7 @@ module.exports = (sequelize, DataTypes) => {
       mtime: DataTypes.DATE,
       response_rate: DataTypes.INTEGER,
       country: DataTypes.STRING,
+      last_active_time: DataTypes.BIGINT,
     },
     {
       sequelize,

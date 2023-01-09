@@ -7,6 +7,25 @@ const search_suggestion = require("../../../data/search_suggestion.json");
 const formatDate = require("../utils/formatDate");
 
 require("dotenv").config();
+const insertIndustries = (item, index, i) =>
+  new Promise(async (resolve, reject) => {
+    try {
+      await db.Industry.create({
+        category_name: item?.category_name,
+        display_name: item.path[0].category_name,
+        images: JSON.stringify(item?.images),
+        path_category_name: JSON.stringify(
+          item?.path?.map((ele) => ele?.category_name)
+        ),
+        path_category_id: JSON.stringify(
+          item?.path?.map((ele) => ele?.category_id)
+        ),
+        catid: item?.path[0].category_id,
+      });
+    } catch (error) {
+      reject(error);
+    }
+  });
 const insertService = () =>
   new Promise(async (resolve, reject) => {
     try {
@@ -67,6 +86,7 @@ const insertService = () =>
         await db.Overview.create({
           itemid: item?.itemid,
           shopid: item?.shopid,
+          catid: item?.catid,
           name: item?.name,
           image:
             item?.image === ""
@@ -84,6 +104,9 @@ const insertService = () =>
           discount: item?.discount,
           shop_rating: item?.shop_rating,
           liked: item?.liked ? true : false,
+          is_official_shop: item?.is_official_shop,
+          is_service_by_shopee: item?.is_service_by_shopee,
+          show_free_shipping: item?.show_free_shipping,
           ctime: formatDate(item?.ctime),
           createdAt: formatDate(item?.ctime),
         });
@@ -245,6 +268,7 @@ const InsertPostService = (item, index, i) =>
       await db.Overview.create({
         itemid: item?.itemid,
         shopid: item?.shopid,
+        catid: item?.catid,
         name: item?.name,
         image:
           item?.image === ""
@@ -262,6 +286,9 @@ const InsertPostService = (item, index, i) =>
         discount: item?.discount,
         shop_rating: item?.shop_rating,
         liked: item?.liked ? true : false,
+        is_official_shop: item?.is_official_shop,
+        is_service_by_shopee: item?.is_service_by_shopee,
+        show_free_shipping: item?.show_free_shipping,
         ctime: formatDate(item?.ctime),
         createdAt: formatDate(item?.ctime),
       });
@@ -380,6 +407,7 @@ const insertShopService = (item, index) =>
         mtime: formatDate(item?.data?.mtime),
         response_rate: item?.data?.response_rate,
         country: item?.data?.country,
+        last_active_time: item?.data?.last_active_time,
         createdAt: formatDate(item?.data?.ctime),
       });
 
@@ -406,4 +434,5 @@ module.exports = {
   insertCommentService,
   InsertPostService,
   insertShopService,
+  insertIndustries,
 };

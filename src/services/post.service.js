@@ -10,7 +10,7 @@ const GetAllPostService = () =>
         nest: true,
         include: [
           { model: db.Description, as: "description" },
-          { model: db.Category, as: " ategories" },
+          { model: db.Category, as: " categories" },
           { model: db.Video, as: "video" },
           { model: db.TierVariation, as: "tier_variations" },
           { model: db.Attribute, as: "attributes" },

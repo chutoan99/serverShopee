@@ -21,12 +21,17 @@ const GetAllOverviewService = ({ page, limit, order, name, price, ...query }) =>
       const response = await db.Overview.findAndCountAll({
         where: query,
         ...queries,
+        raw: true,
+        nest: true,
       });
+
+      var total = Math.ceil(response.count / limit);
       resolve({
         err: response ? 0 : 1,
         msg: response ? "OK" : "cant not found..",
         page: page ? +page : 0,
         limit: +limit ? +limit : +process.env.LIMIT,
+        totalPage: total,
         response,
       });
     } catch (error) {

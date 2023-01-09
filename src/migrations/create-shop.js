@@ -31,6 +31,7 @@ module.exports = {
       response_time: { type: Sequelize.INTEGER },
       description: { type: Sequelize.STRING },
       followed: { type: Sequelize.BOOLEAN },
+      last_active_time: { type: Sequelize.BIGINT },
       createdAt: { allowNull: false, type: Sequelize.DATE },
       updatedAt: { allowNull: false, type: Sequelize.DATE },
     });

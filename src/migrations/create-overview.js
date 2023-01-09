@@ -11,6 +11,7 @@ module.exports = {
       },
       itemid: { type: Sequelize.BIGINT },
       shopid: { type: Sequelize.BIGINT },
+      catid: { type: Sequelize.BIGINT },
       name: { type: Sequelize.STRING },
       image: { type: Sequelize.STRING },
       price: { type: Sequelize.INTEGER },
@@ -25,6 +26,9 @@ module.exports = {
       filename: { type: Sequelize.STRING },
       liked: { type: Sequelize.BOOLEAN },
       ctime: { type: Sequelize.DATE },
+      is_official_shop: { type: Sequelize.BOOLEAN },
+      is_service_by_shopee: { type: Sequelize.BOOLEAN },
+      show_free_shipping: { type: Sequelize.BOOLEAN },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
