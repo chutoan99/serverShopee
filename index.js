@@ -28,9 +28,6 @@ connectMongodb();
 // routes
 initRoutes(app);
 // trang home
-app.get("/", (req, res) => {
-  res.send("hello");
-});
 
 // trang home
 require("dotenv").config();

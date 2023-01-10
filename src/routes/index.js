@@ -37,6 +37,9 @@ const initRoutes = (app) => {
 
   app.use("/industry", industryRoute);
 
+  app.use("/", (req, res) => {
+    res.send("hello kết nối thành công");
+  });
   // nếu không lọt vào các routes trên thì sẽ lọt vào routes này
   app.use(notFound);
 };
