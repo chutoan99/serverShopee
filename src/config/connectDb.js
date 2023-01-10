@@ -4,8 +4,8 @@ const { Sequelize } = require("sequelize");
 const sequelize = new Sequelize("shopee", "root", null, {
   host: "localhost",
   dialect: "mysql",
+  port: "3306",
   logging: false,
-  port: "3305",
 });
 
 const connectDb = async () => {

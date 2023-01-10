@@ -17,6 +17,7 @@ const GetAllOverviewService = ({ page, limit, order, name, price, ...query }) =>
     if (order) queries.order = [order];
     if (name) query.name = { [Op.substring]: name };
     if (price) query.price = { [Op.between]: price };
+    console.log(query);
     try {
       const response = await db.Overview.findAndCountAll({
         where: query,

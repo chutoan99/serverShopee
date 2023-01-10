@@ -1,5 +1,5 @@
 const { notFound } = require("../middleWares/handle_errors");
-const insertRoute = require("./insert.route");
+// const insertRoute = require("./insert.route");
 const overviewRoute = require("./overview.route");
 const postRoute = require("./post.route");
 const commentRoute = require("./comment.route");
@@ -15,7 +15,7 @@ const industryRoute = require("./industry.route");
 const initRoutes = (app) => {
   app.use("/auth", authRoute);
 
-  app.use("/insert", insertRoute);
+  // app.use("/insert", insertRoute);
 
   app.use("/overview", overviewRoute);
 
