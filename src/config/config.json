@@ -1,10 +1,10 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "shopee",
-    "host": "127.0.0.1",
-    "port": "3306",
+    "password": "w2SGfCx46bPDRClVaO0w",
+    "database": "railway",
+    "host": "containers-us-west-199.railway.app",
+    "port": "7753",
     "dialect": "mysql"
   },
   "test": {

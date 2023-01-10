@@ -28,7 +28,9 @@ connectMongodb();
 // routes
 initRoutes(app);
 // trang home
-
+app.use("/home", (req, res) => {
+  res.send("hello kết nối thành công");
+});
 // trang home
 require("dotenv").config();
 const PORT = process.env.PORT || 3000;
