@@ -9,9 +9,9 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      image: { type: Sequelize.STRING(10000) },
-      title: { type: Sequelize.STRING(10000) },
-      content: { type: Sequelize.STRING(10000) },
+      image: { type: Sequelize.STRING },
+      title: { type: Sequelize.STRING },
+      content: { type: Sequelize.STRING },
       userid: { type: Sequelize.BIGINT },
       seen: { type: Sequelize.BOOLEAN },
       createdAt: {

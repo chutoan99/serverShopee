@@ -9,7 +9,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      text: { type: Sequelize.STRING(10000) },
+      text: { type: Sequelize.STRING },
       count: { type: Sequelize.INTEGER },
       createdAt: {
         allowNull: false,

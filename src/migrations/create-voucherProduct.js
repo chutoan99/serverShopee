@@ -11,8 +11,8 @@ module.exports = {
       },
       itemid: { type: Sequelize.BIGINT },
       promotion_id: { type: Sequelize.BIGINT },
-      voucher_code: { type: Sequelize.STRING(10000) },
-      label: { type: Sequelize.STRING(10000) },
+      voucher_code: { type: Sequelize.STRING },
+      label: { type: Sequelize.STRING },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

@@ -9,7 +9,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      image_url: { type: Sequelize.STRING(10000) },
+      image_url: { type: Sequelize.STRING },
 
       createdAt: {
         allowNull: false,
