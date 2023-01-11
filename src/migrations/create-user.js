@@ -17,7 +17,7 @@ module.exports = {
       name: { type: Sequelize.STRING },
       address: { type: Sequelize.STRING },
       birthday: { type: Sequelize.STRING },
-      phone: { type: Sequelize.INTEGER },
+      phone: { type: Sequelize.BIGINT },
       avatar: { type: Sequelize.STRING },
       role: { type: Sequelize.STRING },
       createdAt: {
