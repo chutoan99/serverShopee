@@ -5,13 +5,7 @@ const sequelize = new Sequelize("railway", "root", "w2SGfCx46bPDRClVaO0w", {
   host: "containers-us-west-199.railway.app",
   dialect: "mysql",
   port: 7753,
-  logging: false,
-  pool: {
-    max: 3000,
-    min: 0,
-    acquire: 600000,
-    idle: 5000,
-  },
+  logging: true,
 });
 
 const connectDb = async () => {

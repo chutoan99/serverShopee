@@ -14,7 +14,7 @@ module.exports = {
       cmtid: { type: Sequelize.BIGINT },
       userid: { type: Sequelize.BIGINT },
       shopid: { type: Sequelize.BIGINT },
-      comment: { type: Sequelize.STRING },
+      comment: { type: Sequelize.STRING(1000) },
       ctime: { type: Sequelize.DATE },
       mtime: { type: Sequelize.DATE },
       createdAt: {
