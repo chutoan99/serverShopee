@@ -10,7 +10,7 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       itemid: { type: Sequelize.BIGINT },
-      description: { type: Sequelize.STRING },
+      description: { type: Sequelize.STRING(10000) },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

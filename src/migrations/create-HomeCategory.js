@@ -9,13 +9,13 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      display_name: { type: Sequelize.STRING },
+      display_name: { type: Sequelize.STRING(10000) },
       catid: { type: Sequelize.BIGINT },
       parent_catid: { type: Sequelize.INTEGER },
-      name: { type: Sequelize.STRING },
-      image: { type: Sequelize.STRING },
-      unselected_image: { type: Sequelize.STRING },
-      selected_image: { type: Sequelize.STRING },
+      name: { type: Sequelize.STRING(10000) },
+      image: { type: Sequelize.STRING(10000) },
+      unselected_image: { type: Sequelize.STRING(10000) },
+      selected_image: { type: Sequelize.STRING(10000) },
       level: { type: Sequelize.INTEGER },
 
       createdAt: {

@@ -10,7 +10,7 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       userid: { type: Sequelize.BIGINT },
-      text: { type: Sequelize.STRING },
+      text: { type: Sequelize.STRING(10000) },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

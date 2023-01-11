@@ -10,9 +10,9 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       itemid: { type: Sequelize.BIGINT },
-      promotion_price: { type: Sequelize.STRING },
-      hidden_promotion_price: { type: Sequelize.STRING },
-      text: { type: Sequelize.STRING },
+      promotion_price: { type: Sequelize.STRING(10000) },
+      hidden_promotion_price: { type: Sequelize.STRING(10000) },
+      text: { type: Sequelize.STRING(10000) },
       start_time: { type: Sequelize.DATE },
       end_time: { type: Sequelize.DATE },
       createdAt: {
