@@ -47,7 +47,7 @@
 
 // const InsertPostController = async (req, res) => {
 //   try {
-//     for (let index = 100; index < 250; index++) {
+//     for (let index = 0; index < 250; index++) {
 //       const hotItems = require(`../../../data/post/hot_items_${index}.json`)
 //         .data.items;
 //       await hotItems.forEach(async (item, i) => {
@@ -61,7 +61,7 @@
 // // INSERT ALL shop
 // const insertShopController = async (req, res) => {
 //   try {
-//     for (let index = 0; index < 500; index++) {
+//     for (let index = 0; index < 1000; index++) {
 //       const item = require(`../../../data/shopDetail/shopDetail_${index}.json`);
 //       insertShopService(item, index);
 //     }

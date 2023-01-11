@@ -29,147 +29,147 @@
 // const insertService = () =>
 //   new Promise(async (resolve, reject) => {
 //     try {
-//       // datas?.items?.forEach(async (item) => {
-//       //   // insert Post
-//       //   await db.Post.create({
-//       //     itemid: item?.itemid,
-//       //     shopid: item?.shopid,
-//       //     currency: item?.currency,
-//       //     stock: item?.stock,
-//       //     status: item?.status,
-//       //     sold: item?.sold,
-//       //     liked_count: item?.liked_count,
-//       //     catid: item?.catid,
-//       //     cmt_count: item?.cmt_count,
-//       //     discount: item?.discount,
-//       //     raw_discount: item?.raw_discount,
-//       //     size_chart: item?.size_chart,
-//       //     shop_name: item?.shop_name,
-//       //     transparent_background_image:
-//       //       item?.transparent_background_image === ""
-//       //         ? null
-//       //         : `https://cf.shopee.vn/file/${item?.transparent_background_image}`,
-//       //     images: JSON.stringify(item?.images),
-//       //     view_count: item?.view_count ? item?.view_count : 0,
-//       //     createdAt: formatDate(item?.ctime),
-//       //   });
-//       //   // // insert Description
-//       //   if (typeof item?.attributes?.[0].name !== "undefined") {
-//       //     await db.Attribute.create({
-//       //       itemid: item.itemid,
-//       //       name: JSON.stringify(item?.attributes?.map((item) => item?.name)),
-//       //       value: JSON.stringify(item?.attributes?.map((item) => item?.value)),
-//       //     });
-//       //   }
+//       datas?.items?.forEach(async (item) => {
+//         // insert Post
+//         await db.Post.create({
+//           itemid: item?.itemid,
+//           shopid: item?.shopid,
+//           currency: item?.currency,
+//           stock: item?.stock,
+//           status: item?.status,
+//           sold: item?.sold,
+//           liked_count: item?.liked_count,
+//           catid: item?.catid,
+//           cmt_count: item?.cmt_count,
+//           discount: item?.discount,
+//           raw_discount: item?.raw_discount,
+//           size_chart: item?.size_chart,
+//           shop_name: item?.shop_name,
+//           transparent_background_image:
+//             item?.transparent_background_image === ""
+//               ? null
+//               : `https://cf.shopee.vn/file/${item?.transparent_background_image}`,
+//           images: JSON.stringify(item?.images),
+//           view_count: item?.view_count ? item?.view_count : 0,
+//           createdAt: formatDate(item?.ctime),
+//         });
+//         // // insert Description
+//         if (typeof item?.attributes?.[0].name !== "undefined") {
+//           await db.Attribute.create({
+//             itemid: item.itemid,
+//             name: JSON.stringify(item?.attributes?.map((item) => item?.name)),
+//             value: JSON.stringify(item?.attributes?.map((item) => item?.value)),
+//           });
+//         }
 
-//       //   // insert tierVariation
-//       //   if (item?.tier_variations[0].name !== "") {
-//       //     item?.tier_variations?.map(async (ele) => {
-//       //       await db.TierVariation.create({
-//       //         itemid: item.itemid,
-//       //         name: ele?.name,
-//       //         option: JSON.stringify(ele?.options),
-//       //         img: JSON.stringify(ele?.images),
-//       //       });
-//       //     });
-//       //   }
+//         // insert tierVariation
+//         if (item?.tier_variations[0].name !== "") {
+//           item?.tier_variations?.map(async (ele) => {
+//             await db.TierVariation.create({
+//               itemid: item.itemid,
+//               name: ele?.name,
+//               option: JSON.stringify(ele?.options),
+//               img: JSON.stringify(ele?.images),
+//             });
+//           });
+//         }
 
-//       //   // insert Description
+//         // insert Description
 
-//       //   await db.Description.create({
-//       //     itemid: item?.itemid,
-//       //     description: item?.description,
-//       //   });
+//         await db.Description.create({
+//           itemid: item?.itemid,
+//           description: item?.description,
+//         });
 
-//       //   // insert Overview
+//         // insert Overview
 
-//       //   await db.Overview.create({
-//       //     itemid: item?.itemid,
-//       //     shopid: item?.shopid,
-//       //     catid: item?.catid,
-//       //     name: item?.name,
-//       //     image:
-//       //       item?.image === ""
-//       //         ? null
-//       //         : `https://cf.shopee.vn/file/${item?.image}`,
-//       //     stock: item?.stock,
-//       //     historical_sold: item?.historical_sold,
-//       //     price: +item?.price / 100000,
-//       //     price_min: +item?.price_min / 100000,
-//       //     price_max: +item?.price_max / 100000,
-//       //     price_min_before_discount:
-//       //       ((+item.price_min / 100) * (100 - item?.raw_discount)) / 100000,
-//       //     price_max_before_discount:
-//       //       ((item.price_max / 100) * (100 - item?.raw_discount)) / 100000,
-//       //     discount: item?.discount,
-//       //     shop_rating: item?.shop_rating,
-//       //     liked: item?.liked ? true : false,
-//       //     is_official_shop: item?.is_official_shop,
-//       //     is_service_by_shopee: item?.is_service_by_shopee,
-//       //     show_free_shipping: item?.show_free_shipping,
-//       //     ctime: formatDate(item?.ctime),
-//       //     createdAt: formatDate(item?.ctime),
-//       //   });
+//         await db.Overview.create({
+//           itemid: item?.itemid,
+//           shopid: item?.shopid,
+//           catid: item?.catid,
+//           name: item?.name,
+//           image:
+//             item?.image === ""
+//               ? null
+//               : `https://cf.shopee.vn/file/${item?.image}`,
+//           stock: item?.stock,
+//           historical_sold: item?.historical_sold,
+//           price: +item?.price / 100000,
+//           price_min: +item?.price_min / 100000,
+//           price_max: +item?.price_max / 100000,
+//           price_min_before_discount:
+//             ((+item.price_min / 100) * (100 - item?.raw_discount)) / 100000,
+//           price_max_before_discount:
+//             ((item.price_max / 100) * (100 - item?.raw_discount)) / 100000,
+//           discount: item?.discount,
+//           shop_rating: item?.shop_rating,
+//           liked: item?.liked ? true : false,
+//           is_official_shop: item?.is_official_shop,
+//           is_service_by_shopee: item?.is_service_by_shopee,
+//           show_free_shipping: item?.show_free_shipping,
+//           ctime: formatDate(item?.ctime),
+//           createdAt: formatDate(item?.ctime),
+//         });
 
-//       //   // insert Category
+//         // insert Category
 
-//       //   await db.Category.create({
-//       //     itemid: item?.itemid,
-//       //     display_name: JSON.stringify(
-//       //       item?.categories?.map((ele) => ele?.display_name)
-//       //     ),
-//       //     catid: JSON.stringify(item?.categories?.map((ele) => ele?.catid)),
-//       //   });
-//       //   // // insert voucherProduct
+//         await db.Category.create({
+//           itemid: item?.itemid,
+//           display_name: JSON.stringify(
+//             item?.categories?.map((ele) => ele?.display_name)
+//           ),
+//           catid: JSON.stringify(item?.categories?.map((ele) => ele?.catid)),
+//         });
+//         // // insert voucherProduct
 
-//       //   if (typeof item?.voucher_info?.promotion_id !== "undefined") {
-//       //     await db.VoucherProduct.create({
-//       //       itemid: item?.itemid,
-//       //       promotion_id: item?.voucher_info?.promotion_id,
-//       //       voucher_code: item?.voucher_info?.voucher_code,
-//       //       label: item?.voucher_info?.voucher_code,
-//       //     });
-//       //   }
+//         if (typeof item?.voucher_info?.promotion_id !== "undefined") {
+//           await db.VoucherProduct.create({
+//             itemid: item?.itemid,
+//             promotion_id: item?.voucher_info?.promotion_id,
+//             voucher_code: item?.voucher_info?.voucher_code,
+//             label: item?.voucher_info?.voucher_code,
+//           });
+//         }
 
-//       //   // insert deepDiscountSkin
-//       //   if (
-//       //     item?.deep_discount_skin?.skin_data?.promo_label?.promotion_price !==
-//       //     ""
-//       //   ) {
-//       //     await db.DeepDiscountSkin.create({
-//       //       itemid: item?.itemid,
-//       //       promotion_price:
-//       //         item?.deep_discount_skin?.skin_data?.promo_label?.promotion_price,
-//       //       hidden_promotion_price:
-//       //         item?.deep_discount_skin?.skin_data?.promo_label
-//       //           ?.hidden_promotion_price,
-//       //       start_time: formatDate(
-//       //         item?.deep_discount_skin?.skin_data?.promo_label?.start_time
-//       //       ),
-//       //       end_time: formatDate(
-//       //         item?.deep_discount_skin?.skin_data?.promo_label?.end_time
-//       //       ),
-//       //     });
-//       //   }
+//         // insert deepDiscountSkin
+//         if (
+//           item?.deep_discount_skin?.skin_data?.promo_label?.promotion_price !==
+//           ""
+//         ) {
+//           await db.DeepDiscountSkin.create({
+//             itemid: item?.itemid,
+//             promotion_price:
+//               item?.deep_discount_skin?.skin_data?.promo_label?.promotion_price,
+//             hidden_promotion_price:
+//               item?.deep_discount_skin?.skin_data?.promo_label
+//                 ?.hidden_promotion_price,
+//             start_time: formatDate(
+//               item?.deep_discount_skin?.skin_data?.promo_label?.start_time
+//             ),
+//             end_time: formatDate(
+//               item?.deep_discount_skin?.skin_data?.promo_label?.end_time
+//             ),
+//           });
+//         }
 
-//       //   // insert videos
-//       //   if (typeof item?.video_info_list[0]?.video_id !== "undefined") {
-//       //     await db.Video.create({
-//       //       itemid: item?.itemid,
-//       //       video_id: item?.video_info_list[0]?.video_id,
-//       //       thumb_url: item?.video_info_list[0]?.thumb_url,
-//       //       duration: item?.video_info_list[0]?.duration,
-//       //       version: item?.video_info_list[0]?.version,
-//       //       defn: item?.video_info_list[0]?.default_format?.defn,
-//       //       profile: item?.video_info_list[0]?.default_format?.profile,
-//       //       url: item?.video_info_list[0]?.default_format?.url,
-//       //       width: item?.video_info_list[0]?.default_format?.width,
-//       //       height: item?.video_info_list[0]?.default_format?.height,
-//       //     });
-//       //   }
+//         // insert videos
+//         if (typeof item?.video_info_list[0]?.video_id !== "undefined") {
+//           await db.Video.create({
+//             itemid: item?.itemid,
+//             video_id: item?.video_info_list[0]?.video_id,
+//             thumb_url: item?.video_info_list[0]?.thumb_url,
+//             duration: item?.video_info_list[0]?.duration,
+//             version: item?.video_info_list[0]?.version,
+//             defn: item?.video_info_list[0]?.default_format?.defn,
+//             profile: item?.video_info_list[0]?.default_format?.profile,
+//             url: item?.video_info_list[0]?.default_format?.url,
+//             width: item?.video_info_list[0]?.default_format?.width,
+//             height: item?.video_info_list[0]?.default_format?.height,
+//           });
+//         }
 
-//       //   resolve("done..");
-//       // });
+//         resolve("done..");
+//       });
 
 //       HomeCategory.data.category_list.map(async (item) => {
 //         await db.HomeCategory.create({
@@ -264,7 +264,6 @@
 // const InsertPostService = (item, index, i) =>
 //   new Promise(async (resolve, reject) => {
 //     try {
-//       console.log(item?.itemid, index, i);
 //       await db.Overview.create({
 //         itemid: item?.itemid,
 //         shopid: item?.shopid,
@@ -364,6 +363,7 @@
 //           ),
 //         });
 //       }
+//       console.log(item?.itemid, index, i);
 //     } catch (error) {
 //       reject(error);
 //     }
