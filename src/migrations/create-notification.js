@@ -14,6 +14,7 @@ module.exports = {
       content: { type: Sequelize.STRING },
       userid: { type: Sequelize.BIGINT },
       seen: { type: Sequelize.BOOLEAN },
+      time: { type: Sequelize.STRING },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
